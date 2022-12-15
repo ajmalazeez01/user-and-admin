@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <h1>admin profile</h1>
+    <% if(details){
+
+        %><table width="50%" rules="all" style="border: 2px solid black;">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>user delete</th>
+                <th>user update</th>
+
+                <td></td>
+                <td></td>
+            </tr>
+            <% details.forEach((item)=>{
+                %><tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.email %></td>
+                    <td><%= item.age %></td>
+                    
+                    <td><button class="button-1 "><a href="/deleteUser?id=<%=item._id%>">Delete</a></button></td>
+                    <td><button class=" button-3"><a href="/updateUserAction?id=<%=item._id%>" >Update</a></button></td>
+                </tr><%
+                
+            })
+            %>
+            
+        </table><%
+    }else{
+        %><%
+    }
+    %>
+    <form action="/searchUser" method="post">
+        <input type="text" class="button-70" placeholder="enter user email address" name="search">
+        <button class="button-70"><a href="/clearSearch">ClearSearch</a></button>
+    </form>
+    <button class="button-70"><a href="/addUserPage">Add User</a></button>
+    <button class="button-70"><a href="/adminLogout">Log Out</a></button>
+</body>
+</html>
+
+<style> 
+    .button-3 {
+      appearance: none;
+      background-color: #2ea44f;
+      border: 1px solid rgba(27, 31, 35, .15);
+      border-radius: 6px;
+      box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      padding: 6px 16px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    
+    .button-3:focus:not(:focus-visible):not(.focus-visible) {
+      box-shadow: none;
+      outline: none;
+    }
+    
+    .button-3:hover {
+      background-color: #2c974b;
+    }
+    
+    .button-3:focus {
+      box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+      outline: none;
+    }
+    
+    .button-3:disabled {
+      background-color: #94d3a2;
+      border-color: rgba(27, 31, 35, .1);
+      color: rgba(255, 255, 255, .8);
+      cursor: default;
+    }
+    
+    .button-3:active {
+      background-color: #298e46;
+      box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+    }
+    
+
+
+
+   
+
+   
+.button-1 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 3px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
+
+
+.button-70 {
+  background-image: linear-gradient(#0dccea, #0d70ea);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  color: aliceblue;
+  cursor: pointer;
+  font-family: Montserrat,sans-serif;
+  font-size: .9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+body{
+    background-color:gainsboro;
+}
+
+    </style>
